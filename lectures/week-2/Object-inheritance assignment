@@ -1,0 +1,23 @@
+// Object-inheritance assignment
+// create two constructors rectanle and square
+// square inherits from rectangle.
+
+//Square.prototype = Rectangle.prototype
+// Rectangle.prototype.getArea = function() {
+//	 var area = width x length;
+	 return area;
+}
+
+
+
+Rectangle.prototype = {
+	length:
+	width:
+	getArea = function {
+	  area=lengthxwidth;
+	  return area;
+	  }
+
+
+
+}

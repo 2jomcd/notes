@@ -1,0 +1,24 @@
+
+
+var unS = [3,2,4];
+//srt = [2,3,4]
+
+var sortA = function(x) {
+var lowNum = x[0];
+var srt    = [];
+
+for (i=0;i<x.length; i++)  {
+for (j=0; j<x.length; j++) {
+    if (x[j] < x[i]) {
+		hiNum = x[j];
+	};
+    
+	srt.push(lowNum);
+    console.log(srt);
+};
+return srt;
+}
+};
+
+
+sortA(unS);

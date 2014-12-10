@@ -1,0 +1,116 @@
+CREATE DATABASE apartmentlab;
+
+\connect apartmentlab
+
+CREATE TABLE owners (
+id SERIAL PRIMARY KEY,
+name TEXT, age INTEGER
+);
+
+CREATE TABLE properties (
+id SERIAL PRIMARY KEY,
+name TEXT,
+number_units INTEGER,
+owner_id INTEGER NOT NULL
+);
+
+ALTER TABLE properties ADD CONSTRAINT forkey1 
+FOREIGN KEY (owner_id) REFERENCES owners 
+ON DELETE NO ACTION;
+
+INSERT INTO owners
+(name, age)
+VALUES
+('John', 33);
+
+INSERT INTO owners
+(name, age)
+VALUES
+('Jane', 43);
+
+\dt;
+
+\du;  
+
+SELECT * FROM owners;
+SELECT * FROM properties
+
+UPDATE owners SET age = 30 WHERE name = 'Jane';
+
+UPDATE owners SET name = 'Janet' WHERE name = 'Jane';
+
+SELECT name FROM owners WHERE name LIKE 'E%'
+
+INSERT INTO properties
+(name, number_units, owner_id)
+VALUES
+('Archstone', 20, 1);
+
+CREATE VIEW all_owners AS
+SELECT name, number_units
+FROM properties;
+
+INSERT INTO owners
+(name, age)
+VALUES
+('Donald', 23);
+
+SELECT name
+FROM owners;
+
+SELECT name
+FROM owners
+WHERE age
+BETWEEN 30 AND 50;
+
+SELECT name
+FROM owners
+WHERE age > 30;
+
+DELETE FROM owners
+WHERE name = Janet;
+
+
+INSERT INTO owners
+(name, age)
+VALUES
+('Joe', 35),
+('Sally', 60),
+('Frank', 29),
+('Loretta', 18),
+('Ambrose', 102);
+
+
+INSERT INTO properties
+(name, number_units, owner_id)
+VALUES
+('Gables',23,1),
+('Bend',40,3),
+('Sky_Lawn',10,3),
+('Ooopsies',159,4),
+('Highland',8,5),
+('Crack_House',39,5),
+('Stokes',16,5),
+('Muffin_Manor',78,6),
+('The_Orchard',220,7),
+('Biscuit',19,7),
+('Hell',173,8);
+
+SELECT *
+FROM properties
+WHERE name != 'Archstone'
+ORDER BY name;
+
+SELECT MAX(age)
+FROM owners;
+
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers
+ON Orders.CustomerID=Customers.CustomerID;
+
+SELECT *
+FROM properties
+INNER JOIN owners
+on 
+
